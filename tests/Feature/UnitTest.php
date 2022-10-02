@@ -13,7 +13,7 @@ class UnitTest extends TestCase
     use WithFaker;
     protected $user;
     public function setUp(): void
-    {
+    {   // Setup akun dummy
         parent::setUp();
         $this->setUpFaker();
         $email = $this->faker->unique()->safeEmail();
@@ -26,6 +26,9 @@ class UnitTest extends TestCase
         ]);
         $this->actingAs($this->user, 'api');
     }
+    /*
+        Test akses halaman CRUD artikel
+    */
     public function testArticlesPage()
     {
         $response = $this->get('articles');
@@ -56,6 +59,9 @@ class UnitTest extends TestCase
         $this->assertAuthenticated();
         $response->assertOk();
     }
+    /*
+        Test akses API CRUD artikel
+    */
     public function testArticlesApi()
     {
         $response = $this->get('api/v1/articles');

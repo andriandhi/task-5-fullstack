@@ -10,11 +10,6 @@ use Illuminate\Support\Facades\Validator;
 
 class ArticleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function deleteArticle($id)
     {
         $article = Article::where('id', '=', $id)->first();
@@ -138,12 +133,6 @@ class ArticleController extends Controller
         $response = ['message' => DB::table('articles')->select('id', 'title')->paginate(5)];
         return response($response, 200);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -173,13 +162,6 @@ class ArticleController extends Controller
         $response = ['message' => $article];
         return response($response, 200);
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         if (strcmp($id, 'create') == 0) {
@@ -198,13 +180,6 @@ class ArticleController extends Controller
         $response = ['message' => $article];
         return response($response, 200);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update($id, Request $request)
     {
         $article = Article::where('id', '=', $id)->first();
@@ -239,13 +214,6 @@ class ArticleController extends Controller
         }
         return response(['message' => $article], 200);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function delete($id)
     {
         $article = Article::where('id', '=', $id)->first();

@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // Buat akun random
         \App\Models\User::factory(10)->create();
     }
 }

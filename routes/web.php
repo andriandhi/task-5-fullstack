@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//  Routes untuk UI
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/articles', [App\Http\Controllers\ArticleController::class, 'showArticles'])->name('articles');
 Route::get('/articles/list', [App\Http\Controllers\ArticleController::class, 'showArticles'])->name('articles');

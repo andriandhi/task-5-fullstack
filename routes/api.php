@@ -19,13 +19,13 @@ use Illuminate\Support\Facades\Route;
 }); */
 
 Route::group(['middleware' => ['cors']], function () {
-
-    // public routes
+    // Endpoint publik
     Route::post('/v1/login', 'Auth\ApiAuth@login')->name('login.api');
     Route::post('/v1/register', 'Auth\ApiAuth@register')->name('register.api');
 });
 
 Route::group(['middleware' => ['cors', 'auth:api']], function () {
+    //  Endpoint privat, harus terautentikasi
     Route::post('/v1/logout', 'Auth\ApiAuth@logout')->name('logout.api');
     Route::post('/v1/article/create', 'ArticleController@create')->name('create.api');
     Route::get('/v1/articles', 'ArticleController@list')->name('list.api');

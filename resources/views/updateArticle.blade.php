@@ -5,12 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Update artikel') }}</div>
+                <div class="card-header"><a href="/articles">Artikel</a>{{ __(' | Update artikel') }}</div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('updateArticleSubmit',$message->id) }}">
                         @csrf
                         <div class="row mb-3">
-                            <label for="title" class="col-md-4 col-form-label text-md-end">{{ __('Title') }}</label>
+                            <label for="title" class="col-md-4 col-form-label text-md-end">{{ __('Judul Artikel') }}</label>
                             <div class="col-md-6">
                                 <input id="title" class="form-control" name="title" value="{{ $message->title }}" required autofocus>
                                 @error('title')
@@ -22,7 +22,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('Image') }}</label>
+                            <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('URL Gambar') }}</label>
 
                             <div class="col-md-6">
                                 <input id="image" class="form-control" name="image" value="{{ $message->image }}" required>

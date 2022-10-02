@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Delete artikel') }}</div>
+                <div class="card-header"><a href="/articles">Artikel</a>{{ __(' | Hapus artikel? ') }}{{$message->title}}</div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('deleteArticleSubmit',$message->id) }}">
                         @csrf

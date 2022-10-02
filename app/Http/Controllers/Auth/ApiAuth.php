@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\DB;
 
 class ApiAuth extends Controller
 {
-
-    /**
-     * @param Request $request
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
-     */
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -37,12 +32,6 @@ class ApiAuth extends Controller
         $response = ['token' => $token];
         return response($response, 200);
     }
-
-
-    /**
-     * @param Request $request
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
-     */
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -67,11 +56,6 @@ class ApiAuth extends Controller
             return response($response, 422);
         }
     }
-
-    /**
-     * @param Request $request
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
-     */
     public function logout(Request $request)
     {
         $token = $request->user()->token();
